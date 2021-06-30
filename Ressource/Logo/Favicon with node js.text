@@ -1,0 +1,76 @@
+You can automate the favicon creation using a Node.js command-line interface:
+
+Install cli-real-favicon:
+npm install -g cli-real-favicon
+Create a file named faviconDescription.json and populate it with:
+{
+	"masterPicture": "TODO: Path to your master picture",
+	"iconsPath": "/",
+	"design": {
+		"ios": {
+			"pictureAspect": "backgroundAndMargin",
+			"backgroundColor": "#ffffff",
+			"margin": "14%",
+			"assets": {
+				"ios6AndPriorIcons": false,
+				"ios7AndLaterIcons": false,
+				"precomposedIcons": false,
+				"declareOnlyDefaultIcon": true
+			}
+		},
+		"desktopBrowser": {
+			"design": "background",
+			"backgroundColor": "#ffffff",
+			"backgroundRadius": 0.45,
+			"imageScale": 0.8
+		},
+		"windows": {
+			"pictureAspect": "noChange",
+			"backgroundColor": "#2b5797",
+			"onConflict": "override",
+			"assets": {
+				"windows80Ie10Tile": false,
+				"windows10Ie11EdgeTiles": {
+					"small": false,
+					"medium": true,
+					"big": false,
+					"rectangle": false
+				}
+			}
+		},
+		"androidChrome": {
+			"pictureAspect": "noChange",
+			"themeColor": "#ffffff",
+			"manifest": {
+				"display": "standalone",
+				"orientation": "notSet",
+				"onConflict": "override",
+				"declared": true
+			},
+			"assets": {
+				"legacyIcon": false,
+				"lowResolutionIcons": false
+			}
+		},
+		"safariPinnedTab": {
+			"pictureAspect": "blackAndWhite",
+			"threshold": 53.125,
+			"themeColor": "#5bbad5"
+		}
+	},
+	"settings": {
+		"scalingAlgorithm": "Mitchell",
+		"errorOnImageTooSmall": false,
+		"readmeFile": false,
+		"htmlCodeFile": false,
+		"usePathAsIs": false
+	}
+}
+In the code above, replace TODO: Path to your master picture with the path of your master picture. For example, assets/images/master_picture.png.
+Generate your icons:
+mkdir outputDir
+real-favicon generate faviconDescription.json faviconData.json outputDir
+Inject the HTML code in your pages:
+real-favicon inject faviconData.json outputDir htmlFiles/*.html
+Check for updates (to be run from time to time, ideally by your continuous integration system):
+real-favicon check-for-update --fail-on-update faviconData.json
