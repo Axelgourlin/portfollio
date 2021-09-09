@@ -192,29 +192,29 @@ body {
 }
 
 .nav-hb-span {
-  width: 3vh;
-  height: 2.1vh;
-  margin-right: 1.5vh;
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+  height: 20px;
 }
 
-.nav-hb-span span {
-  display: block;
-  position: relative;
-  top: 0;
-  right: 0;
+.nav-hb-span div {
+  position: absolute;
+  width: 20px;
   height: 2px;
-  width: 100%;
+  border-radius: 2px;
   background-color: #212b36;
 }
 
-.nav-hb-span span:nth-child(1) {
-  top: 0;
+.nav-hb-span div:nth-child(1) {
+  top: 2.5px;
 }
-.nav-hb-span span:nth-child(2) {
-  top: 0.5vh;
+.nav-hb-span div:nth-child(2) {
+  top: 45%;
 }
-.nav-hb-span span:nth-child(3) {
-  top: 1.1vh;
+.nav-hb-span div:nth-child(3) {
+  top: 15.5px;
   width: 75%;
 }
 
@@ -223,6 +223,33 @@ body {
   letter-spacing: 0.3vh;
   text-transform: uppercase;
   font-weight: 2vh;
+}
+
+/* Anim Hb  */
+
+.nav-hb-span .burger-line1,
+.burger-line3 {
+  transform: rotate(0deg);
+  transition: transform 0.4s ease-in-out, top 0.4s 0.4s ease-in-out;
+}
+
+.burger-line2 {
+  transition: opacity 0.4s 0.4s ease-in-out;
+}
+
+.toggle .burger-line1 {
+  top: 10px !important;
+  transform: rotate(45deg);
+  transition: top 0.4s ease-in-out, transform 0.4s 0.4s ease-in-out;
+}
+.toggle .burger-line2 {
+  opacity: 0;
+}
+.toggle .burger-line3 {
+  top: 10px !important;
+  width: 100% !important;
+  transform: rotate(-45deg);
+  transition: top 0.4s ease-in-out, transform 0.4s 0.4s ease-in-out;
 }
 
 /* nav over */

@@ -24,9 +24,11 @@ document.querySelector(".nav-hb").addEventListener("click", () => {
   const navOver = document.querySelector(".nav-wrapper-over");
   const navLogo = document.querySelector(".nav-logo");
   const navHb = document.querySelector(".nav-hb");
+  const hb = document.querySelector(".nav-hb-span");
   navOver.classList.toggle("active");
   navLogo.classList.toggle("filterActive");
   navHb.classList.toggle("filterActive");
+  hb.classList.toggle("toggle");
 });
 
 // TYPE WRITTER CLASS
