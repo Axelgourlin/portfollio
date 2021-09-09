@@ -1,32 +1,35 @@
 @font-face {
-  font-family: 'nexabold';
-  src: url('Ressource/fonts/nexabold/NexaBold.otf') format('opentype');
+  font-family: "nexabold";
+  src: url("Ressource/fonts/nexabold/NexaBold.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Nexa Light';
-  src: url('Ressource/fonts/nexa/Nexa Light.otf') format('opentype');
+  font-family: "Nexa Light";
+  src: url("Ressource/fonts/nexa/Nexa Light.otf") format("opentype");
 }
 
 @font-face {
-  font-family: 'Questrial';
-  src: url('Ressource/fonts/questrial/Questrial-Regular.ttf') format('truetype');
+  font-family: "Questrial";
+  src: url("Ressource/fonts/questrial/Questrial-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'newsreader';
-  src: url("Ressource/fonts/newsreader/Newsreader-VariableFont_opsz,wght.ttf") format('truetype');
+  font-family: "newsreader";
+  src: url("Ressource/fonts/newsreader/Newsreader-VariableFont_opsz,wght.ttf")
+    format("truetype");
 }
 
 :root {
-  --main-background-color: #F4F6F8;
+  --main-background-color: #f4f6f8;
 }
 
 html {
   font-size: 62.5%;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -56,9 +59,7 @@ body {
   margin-top: 10vh;
 }
 
-
 /* BACK TEXT */
-
 
 .back-wrapper {
   position: absolute;
@@ -71,10 +72,9 @@ body {
 
 .back-title {
   font-size: 25vw;
-  color: #DFE3E8;
+  color: #dfe3e8;
   font-family: "Nexa Bold", sans-serif;
 }
-
 
 /* LOADER */
 .loader {
@@ -89,7 +89,6 @@ body {
   opacity: 1;
   transition: opacity 1.5s ease-out;
 }
-
 
 .display-none {
   display: none !important;
@@ -106,7 +105,6 @@ body {
   scroll-snap-type: y mandatory;
   overflow-x: scroll;
   scroll-behavior: smooth;
-
 }
 
 .wrapper {
@@ -121,7 +119,11 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(180deg, rgb(29, 29, 29) 8%, rgb(255, 255, 255) 40%);
+  background: linear-gradient(
+    180deg,
+    rgb(29, 29, 29) 8%,
+    rgb(255, 255, 255) 40%
+  );
   animation: rotate 4s linear infinite;
 }
 
@@ -131,8 +133,9 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background:radial-gradient(50% 96% at bottom, white 99%, transparent) top no-repeat,
-             radial-gradient(50% 100% at top, white 99%, transparent) bottom no-repeat;
+  background: radial-gradient(50% 96% at bottom, white 99%, transparent) top
+      no-repeat,
+    radial-gradient(50% 100% at top, white 99%, transparent) bottom no-repeat;
   background-size: 100% 50%;
 }
 
@@ -159,7 +162,6 @@ body {
 }
 
 /* NAV */
-
 
 .nav-container {
   width: 100vw;
@@ -192,7 +194,7 @@ body {
 .nav-hb-span {
   width: 3vh;
   height: 2.1vh;
-  margin-right: 1.5vh
+  margin-right: 1.5vh;
 }
 
 .nav-hb-span span {
@@ -217,14 +219,13 @@ body {
 }
 
 .nav-hb-text {
-  font-family: 'Questrial',sans-serif;
+  font-family: "Questrial", sans-serif;
   letter-spacing: 0.3vh;
   text-transform: uppercase;
   font-weight: 2vh;
 }
 
 /* nav over */
-
 
 .nav-wrapper-over {
   position: absolute;
@@ -239,14 +240,17 @@ body {
   overflow: hidden;
   transform: translateX(-100%);
   opacity: 0;
-  transition: opacity 0.5s ease-in,
-              translateX 10s ease-in;
+  transition: opacity 0.5s ease-in, translateX 10s ease-in;
 }
 
 .active {
   transform: translateX(0%);
   display: block;
   opacity: 1;
+}
+
+.filterActive {
+  filter: invert(100%);
 }
 
 .nav-background {
@@ -270,7 +274,7 @@ body {
 }
 
 .nav-list-container {
-  background-color: #212b36;
+  background-color: #274443;
   width: 45%;
   height: 100%;
   display: flex;
@@ -285,20 +289,19 @@ body {
   list-style: none;
 }
 
-.nav-list-item {
-  font-family: 'nexabold', sans-serif;
+.nav-list-item,
+.nav-list-item a {
+  font-family: "nexabold", sans-serif;
   font-size: 6vh;
   line-height: 170%;
-  cursor: pointer;
-  color: white;
+  color: rgba(255, 255, 255, 0.92);
   position: relative;
   padding-top: 2vh;
+  text-decoration: none;
 }
 
-
-.nav-list-item a {
-  text-decoration: none;
-  color: white;
+.nav-list-item span {
+  cursor: pointer;
 }
 
 /* Acceuil */
@@ -314,7 +317,7 @@ body {
   color: white;
   text-align: right;
   padding-right: 10vh;
-  font-family: 'Nexa Light';
+  font-family: "Nexa Light";
 }
 
 .acceuil-text-content h1 {
@@ -323,14 +326,13 @@ body {
   font-weight: 100;
 }
 
-
 .acceuil-text-content h3 {
   text-shadow: 1px 1px 6px rgb(0 0 0 / 40%);
   font-size: 3rem;
 }
 
 .acceuil-text-content h1 span {
-  font-family: 'nexabold';
+  font-family: "nexabold";
   margin-right: 1rem;
   font-weight: bold;
 }
@@ -352,8 +354,6 @@ body {
   z-index: -1;
   border-radius: 10px;
 }
-
-
 
 .content-wrapper .work {
   display: flex;
@@ -402,7 +402,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  filter:brightness(0.6)
+  filter: brightness(0.6);
 }
 
 .work-time {
@@ -416,7 +416,7 @@ body {
   text-transform: uppercase;
   word-wrap: break-word;
   white-space: nowrap;
-  font-family: 'questrial', sans-serif;
+  font-family: "questrial", sans-serif;
 }
 
 .work-text-content {
@@ -428,7 +428,7 @@ body {
   color: white;
   letter-spacing: 0.15vw;
   font-size: 1.5rem;
-  font-family: 'Nexa Light', sans-serif;
+  font-family: "Nexa Light", sans-serif;
   overflow-wrap: break-word;
 }
 
@@ -438,9 +438,8 @@ body {
 
 .work-text-content p {
   line-height: 1.8rem;
-  margin-bottom: 5px;;
+  margin-bottom: 5px;
 }
-
 
 /* Image de profile */
 
@@ -458,42 +457,41 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
 }
 
 /* ABOUT */
 
-.content-wrapper .about {
+.content-wrapper-about {
   width: 100%;
   height: 100%;
-  margin: 0 2vw;
+  margin: 0 5vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .about-title {
-  font-family: 'nexabold', sans-serif;
+  font-family: "nexabold", sans-serif;
   color: #212b36;
-  font-size: 16vh;
+  font-size: 14vh;
   line-height: 120%;
-  width: 858px;
+  width: 70vw;
   height: 49vh;
   word-wrap: break-word;
-  transform: translateY(-10px);
+  transform: translateY(12vh);
 }
 
 .about-paragraphe {
-  margin-top: 5vh;
-  font-family: 'questrial', sans-serif;
+  font-family: "questrial", sans-serif;
   line-height: 170%;
   font-size: 1.5rem;
+  transform: translateY(-20px);
 }
 
 .social-link {
   position: absolute;
-  right: 2vw;
-  bottom: -6vh;
+  right: 5vw;
+  bottom: 9vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -503,7 +501,7 @@ body {
   font-size: 4vh;
   letter-spacing: 0.6vh;
   color: #212b36;
-  font-family: 'Nexa Light', sans-serif;
+  font-family: "Nexa Light", sans-serif;
   text-transform: uppercase;
 }
 
@@ -514,7 +512,6 @@ body {
   cursor: pointer;
   transition: 2s ease;
 }
-
 
 .after::after {
   content: "/";
