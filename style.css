@@ -500,11 +500,10 @@ body {
 .about-title {
   font-family: "nexabold", sans-serif;
   color: #212b36;
-  font-size: 14vh;
+  font-size: 10vh;
   line-height: 120%;
-  width: 70vw;
+  width: 60vw;
   height: 49vh;
-  word-wrap: break-word;
   transform: translateY(12vh);
 }
 
@@ -512,12 +511,12 @@ body {
   font-family: "questrial", sans-serif;
   line-height: 170%;
   font-size: 1.5rem;
-  transform: translateY(-20px);
+  transform: translateY(-50px);
 }
 
 .social-link {
   position: absolute;
-  right: 5vw;
+  right: 8.5vw;
   bottom: 9vh;
   display: flex;
   flex-direction: row;
@@ -543,4 +542,17 @@ body {
 .after::after {
   content: "/";
   margin-left: 2vh;
+}
+
+/* Animation */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 1.3s cubic-bezier(0.5, 0, 0, 1);
 }

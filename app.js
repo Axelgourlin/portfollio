@@ -31,36 +31,53 @@ document.querySelector(".nav-hb").addEventListener("click", () => {
   hb.classList.toggle("toggle");
 });
 
+// ANIMATION SCROLL
+const ratio = 0.1;
+const options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: ratio,
+};
+
+const handleIntersect = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio > ratio) {
+      entry.target.classList.add("reveal-visible");
+      let typeWriter = new Typewriter(AboutAnim, {
+        delay: 120,
+        deleteSpeed: 40,
+        cursor: ".",
+      });
+      typeWriter
+        .pauseFor(1000)
+        .typeString("Bonjour, Je suis Développeur..<br>")
+        .pauseFor(150)
+        .typeString('<span style="color: #F1C40F">JavaScript </span>')
+        .pauseFor(400)
+        .deleteChars(11)
+        .typeString('<span style="color: #2980B9">React</span>')
+        .pauseFor(500)
+        .deleteChars(5)
+        .typeString('<span style="color: #82cc00">NodeJs</span>')
+        .pauseFor(500)
+        .deleteChars(6)
+        .typeString('<span style="color: #8c444c">Web</span>')
+        .pauseFor(500)
+        .deleteChars(18)
+        .typeString('<span style="color: #345756">Axel Gourlin</span>')
+        .pauseFor(1000)
+        .start();
+      observer.unobserve(entry.target);
+    }
+  });
+};
+
+const observer = new IntersectionObserver(handleIntersect, options);
+document.querySelectorAll(".reveal").forEach((elem) => observer.observe(elem));
+
 // TYPE WRITTER CLASS
 
 const AboutAnim = document.querySelector(".about-title");
-console.log("AboutAnim:", AboutAnim);
-
-let typeWriter = new Typewriter(AboutAnim, {
-  delay: 120,
-  deleteSpeed: 40,
-  cursor: ".",
-});
-
-typeWriter
-  .pauseFor(5500)
-  .typeString("Bonjour, Je suis Développeur..<br>")
-  .pauseFor(150)
-  .typeString('<span style="color: #F1C40F">JavaScript </span>')
-  .pauseFor(400)
-  .deleteChars(11)
-  .typeString('<span style="color: #2980B9">React</span>')
-  .pauseFor(500)
-  .deleteChars(5)
-  .typeString('<span style="color: #82cc00">NodeJs</span>')
-  .pauseFor(500)
-  .deleteChars(6)
-  .typeString('<span style="color: #8c444c">Web</span>')
-  .pauseFor(500)
-  .deleteChars(18)
-  .typeString('<span style="color: #345756">Axel Gourlin</span>')
-  .pauseFor(1000)
-  .start();
 
 // Work
 
