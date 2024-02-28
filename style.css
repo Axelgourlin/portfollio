@@ -46,49 +46,70 @@ h1,
 h2,
 h3,
 p {
+  overflow: hidden;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  padding-left: 5px;
+}
+
+h2 {
+  font-size: 4rem;
 }
 
 a {
   text-decoration: none;
+  color: var(--main-font-color);
+}
+
+.hero div {
+  overflow: hidden;
+}
+
+.filter {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  position: absolute;
+  top: 0;
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
+  padding: 9vh;
   background-image: url("assets/img/background.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   color: var(--main-font-color);
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: contrast(105%);
   position: relative;
 }
 
+section {
+  width: 100%;
+  height: 100vh;
+}
+
 .hero {
-  height: 100%;
-  grid-column: 2 / 8;
-  grid-row: 2 / 8;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 5vh;
 }
 
 .hero-subtitle {
   font-family: "newsreader";
-  font-size: 3rem;
 }
 
 .hero-title {
   font-family: "nexabold";
   font-size: 10rem;
-  width: 100px;
   line-height: 13rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hero-description {
@@ -105,6 +126,7 @@ a {
   font-size: 2rem;
   display: flex;
   gap: 1rem;
+  padding-left: 5px;
 }
 
 .hero-social-links-item {
@@ -125,16 +147,203 @@ a {
   font-weight: bold;
 }
 
+.hero-social-links-divider {
+  translate: 0 4px;
+}
+
 .profile-picture {
   width: 25rem;
   height: 30rem;
-  position: absolute;
-  right: 15%;
-  top: 20%;
   background-image: url("assets/img/profile.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 5px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  animation: profilPictureAnimation 0.5s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15vh;
+}
+
+.project-item-picture:hover {
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2), -2px -2px 2px rgba(255, 255, 255, 0.2);
+}
+
+.project-item-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.project-item-title {
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 2vh;
+  transition: 0.1s ease-out;
+}
+
+.project-item-picture {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.project-item-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+@media screen and (min-height: 800px) {
+  .hero {
+    gap: 10vh;
+  }
+  .profile-picture {
+    top: 25%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .profile-picture {
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .profile-picture {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .hero {
+    padding: 0 3vw;
+  }
+
+  .hero-title {
+    font-size: 6rem;
+    line-height: 10rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 3rem;
+  }
+
+  .hero-social-links {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .project {
+    gap: 2vh;
+  }
+  .project-item-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero-title {
+    font-size: 4rem;
+    line-height: 6rem;
+  }
+}
+
+/* Animations */
+h1,
+h2,
+p,
+.hero-social-links {
+  translate: 0 260px;
+}
+
+@keyframes profilPictureAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+h2 {
+  animation: h2Animation 0.9s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes h2Animation {
+  from {
+    translate: 0 260px;
+  }
+
+  50% {
+    translate: 0 0;
+  }
+
+  75% {
+    translate: 0 10px;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+h1 {
+  animation: h1Animation 0.8s ease-out 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes h1Animation {
+  from {
+    translate: 0 260px;
+  }
+
+  60% {
+    translate: 0 0;
+  }
+
+  85% {
+    translate: 0 10px;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+p,
+.hero-social-links {
+  animation: pAnimation 0.8s ease-out 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pAnimation {
+  from {
+    translate: 0 260px;
+  }
+  40% {
+    translate: 0 0;
+  }
+
+  65% {
+    translate: 0 10px;
+  }
+  to {
+    translate: 0 0;
+  }
 }
