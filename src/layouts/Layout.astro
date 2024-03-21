@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="url de mon site" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Axel Gourlin</title>
+
+    <!-- Logo : -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/Logo/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/Logo/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/Logo/favicon-16x16.png" />
+    <link rel="manifest" href="/src/assets/Logo/site.webmanifest" />
+    <link rel="mask-icon" href="/src/assets/Logo/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="filter"></div>
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "nexabold";
+    src: url("/src/assets/fonts/nexabold/NexaBold.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Nexa Light";
+    src: url("/src/assets/fonts/nexa/Nexa Light.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: "Questrial";
+    src: url("/src/assets/fonts/questrial/Questrial-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "newsreader";
+    src: url("/src/assets/fonts/newsreader/Newsreader-VariableFont_opsz,wght.ttf") format("truetype");
+  }
+
+  :root {
+    --main-background-color: #f4f6f8;
+    --main-font-color: white;
+    --back-title-color: #dfe3e8;
+    --back-color-list-container: #274443;
+    --nav-list-items-color: rgba(255, 255, 255, 0.92);
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  *,
+  ::before,
+  ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 1.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    overflow: hidden;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    padding-left: 5px;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--main-font-color);
+  }
+
+  .filter {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    position: absolute;
+    top: 0;
+  }
+
+  .container {
+    padding: 9vh;
+    color: var(--main-font-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: contrast(105%);
+    position: relative;
+    background-image: url("/src/assets/img/background.webp");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  section {
+    width: 100%;
+    height: 100vh;
+  }
+</style>

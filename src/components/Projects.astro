@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import donalQuoteImg from "../assets/img/donald-quote.jpg";
+import chickenNuggetImg from "../assets/img/chicken-nugget-min.png";
+---
+
+<section class="project">
+  <div class="project-title">
+    <h2>My projects</h2>
+  </div>
+  <div class="project-item-container">
+    <a href="https://quote-donald-trump.vercel.app/" target="_blank">
+      <div class="project-item">
+        <div class="project-item-picture">
+          <Image src={donalQuoteImg} alt="Get a Donal Trump quote project image" />
+        </div>
+        <h3 class="project-item-title">Get a Donal Trump quote</h3>
+      </div>
+    </a>
+    <a href="https://simmer.io/@DanForstesque/chicken-nuggets" target="_blank">
+      <div class="project-item">
+        <div class="project-item-picture"><Image src={chickenNuggetImg} alt="Chicken nuggets project image" /></div>
+        <h3 class="project-item-title">Chicken nuggets</h3>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15vh;
+  }
+
+  .project-item-container a:hover {
+    box-shadow:
+      2px 2px 2px rgba(255, 255, 255, 0.2),
+      -2px -2px 2px rgba(255, 255, 255, 0.2);
+  }
+
+  .project-item-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .project-item-container a {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 5px;
+  }
+
+  .project-item-title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 2vh 0 1vh 0;
+    transition: 0.1s ease-out;
+  }
+
+  .project-item-picture {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  }
+
+  .project-item-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 680px) {
+    .project {
+      gap: 2vh;
+    }
+    .project-item-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 4vh;
+    }
+  }
+</style>

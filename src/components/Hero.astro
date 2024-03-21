@@ -1,0 +1,250 @@
+---
+import { Image } from "astro:assets";
+import profilePicture from "../assets/img/profile.webp";
+---
+
+<section class="hero">
+  <div class="hero-subtitle"><h2>Hey there!</h2></div>
+  <div class="hero-title">
+    <h1>
+      Axel <br />
+      Gourlin
+    </h1>
+    <div class="profile-picture">
+      <Image src={profilePicture} alt="profile picture" />
+    </div>
+  </div>
+  <div class="hero-description">
+    <p>
+      <strong>Software Engineer.</strong> fascinated by new technologies and their ability to shape the future, I am committed
+      to constantly learning best practices and software architecture concepts.
+    </p>
+  </div>
+  <div class="hero-social-links">
+    <span class="hero-social-links-item">
+      <a class="after" href="https://github.com/Axelgourlin" target="_blank">GITHUB</a>
+    </span>
+    <div class="hero-social-links-divider">/</div>
+    <span class="hero-social-links-item">
+      <a href="https://www.linkedin.com/in/axel-gourlin-9bb2071b0/" target="_blank">LINKEDIN</a>
+    </span>
+  </div>
+</section>
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    height: 100%;
+  }
+
+  .hero div {
+    overflow: hidden;
+  }
+
+  .hero-subtitle {
+    font-family: "newsreader", serif;
+  }
+
+  .hero-title {
+    font-family: "nexabold", "Calibri", sans-serif;
+    font-size: 10rem;
+    line-height: 13rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hero-description {
+    font-family: "newsreader", serif;
+    font-size: 4rem;
+  }
+
+  .hero-description > strong {
+    font-family: "nexabold", "Calibri", sans-serif;
+  }
+
+  .hero-social-links {
+    font-family: "newsreader", serif;
+    font-size: 2rem;
+    display: flex;
+    gap: 1rem;
+    padding-left: 5px;
+  }
+
+  .hero-social-links-item {
+    letter-spacing: 0.6vh;
+    color: #212b36;
+    font-family: "Nexa Light", "Calibri", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .hero-social-links-item a {
+    text-decoration: none;
+    color: var(--main-font-color);
+    cursor: pointer;
+    transition: 0.1s ease-out;
+  }
+
+  .hero-social-links-item a:hover {
+    font-weight: bold;
+  }
+
+  .hero-social-links-divider {
+    translate: 0 4px;
+  }
+
+  .profile-picture {
+    width: 25rem;
+    height: 30rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    animation: profilPictureAnimation 0.5s ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-position: 0 -20px;
+  }
+
+  @media screen and (min-height: 800px) {
+    .hero {
+      gap: 10vh;
+    }
+    .profile-picture {
+      top: 25%;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .profile-picture {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media screen and (max-width: 1040px) {
+    .profile-picture {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .hero {
+      padding: 0 3vw;
+    }
+
+    .hero-title {
+      font-size: 6rem;
+      line-height: 10rem;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+    }
+
+    .hero-description {
+      font-size: 3rem;
+    }
+
+    .hero-social-links {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .hero-title {
+      font-size: 4rem;
+      line-height: 6rem;
+    }
+  }
+
+  /* Animations */
+
+  h1 {
+    translate: 0 300px;
+  }
+
+  h2,
+  p,
+  .hero-social-links {
+    translate: 0 260px;
+  }
+
+  @keyframes profilPictureAnimation {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    animation: h2Animation 0.9s ease-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes h2Animation {
+    from {
+      translate: 0 260px;
+    }
+
+    50% {
+      translate: 0 0;
+    }
+
+    75% {
+      translate: 0 10px;
+    }
+
+    to {
+      translate: 0 0;
+    }
+  }
+
+  h1 {
+    animation: h1Animation 0.8s ease-out 0.5s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes h1Animation {
+    from {
+      translate: 0 300px;
+    }
+
+    60% {
+      translate: 0 0;
+    }
+
+    85% {
+      translate: 0 10px;
+    }
+
+    to {
+      translate: 0 0;
+    }
+  }
+
+  p,
+  .hero-social-links {
+    animation: pAnimation 0.8s ease-out 0.8s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes pAnimation {
+    from {
+      translate: 0 260px;
+    }
+    40% {
+      translate: 0 0;
+    }
+
+    65% {
+      translate: 0 10px;
+    }
+    to {
+      translate: 0 0;
+    }
+  }
+</style>
